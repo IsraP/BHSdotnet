@@ -78,6 +78,19 @@ namespace Data
             else
                 return false;
         }
+        public bool RestorePedido(Pedido pRestore)
+        {
+            if (pRestore.Codigo != -1)
+            {
+                pRestore.Status = "A";
+
+                Update(pRestore);
+
+                return true;
+            }
+            else
+                return false;
+        }
 
         public void Add<T>(T entity) where T : class
         {
@@ -139,5 +152,6 @@ namespace Data
 
             return lastCodigo;
         }
+
     }
 }

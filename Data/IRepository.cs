@@ -17,6 +17,8 @@ namespace Data
 
         bool RemovePedido(Pedido pRemove);
 
+        bool RestorePedido(Pedido pRestore);
+
         int getLastCodigoPedido();
 
         IEnumerable<Item> getAllItens(int page);

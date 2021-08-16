@@ -79,6 +79,21 @@ namespace App.Controllers
             return RedirectToAction("showPedidos");
         }
 
+        public IActionResult restorePedido(int id)
+        {
+            if (id == 0)
+                return RedirectToAction("showPedidos");
+
+            Pedido pRestore = _repo.getPedidoById(id);
+
+            bool flag = _repo.RestorePedido(pRestore);
+
+            if (flag)
+                _repo.SaveChanges();
+
+            return RedirectToAction("showPedidos");
+        }
+
         public IActionResult searchPedidos(string query, int page)
         {
             if (query == null || query == "")
