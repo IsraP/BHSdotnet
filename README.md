@@ -2,6 +2,15 @@
 
 Um repositório feito pra guardar toda a solução desenvolvida para o desafio proposto pelo processo de estágio da BHS.
 
+## Pré-requisitos
+* .net Core 5.0
+* Uma imagem de banco de dados mssql (ou qualquer outra desde que modificado o código pra funcionar)
+* Uma conexão com a Internet
+
+## Instruções de uso
+* Se dirija até a pasta App
+* Rode no console, ou em qualquer ferramenta capaz de buildar e rodar .net, o comando dotnet run 
+
 ## Funcionalidades
 
 ### 1. Ler os dados pré feitos e incluí-los no banco
@@ -35,6 +44,11 @@ Um repositório feito pra guardar toda a solução desenvolvida para o desafio p
 ### 6. Bonus! Restauração de pedidos
 * Foi feito um sistema de restauração de pedidos
 * Era simples, então eu acabei fazendo
+
+## Informações
+* A pasta App contém todos os arquivos destinados a rodar a aplicação em sí. Views e Controllers se encontram nele
+* As conexões com o banco de dados são feitas e administradas na pasta Data
+* Todos os modelos usados se encontram na pasta Model
 
 ## Comentários
 
