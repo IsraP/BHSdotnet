@@ -14,12 +14,14 @@ Um repositório feito pra guardar toda a solução desenvolvida para o desafio p
 * Filtro feito a partir de sua descrição
 * Os itens podem ser vistos a partir do botão "ver mais"
 * O cadastro pode ser feito a partir da tela de pedidos ou pelo Carrinho
+* Abrange o requisito 5
 
 ### 3. Mostrar todos os itens cadastrados
 * Filtro feito a partir de sua descrição
 * O cadastro pode ser feito a partir da tela de itens
 * Devido a um erro de leitura meu, a implementação de itens em pedidos não foi feita
   * Como placeholder, todos os novos itens são salvos no pedido de Código 1
+* Abrange parcialmente o requisito 6
 
 ### 4. Bonus! Front-end
 * A aplicação foi feita visando um front-end responsivo e bonito, sem necessáriamente necessitar de um tempo exclusivo para o desenvolvimento do mesmo
