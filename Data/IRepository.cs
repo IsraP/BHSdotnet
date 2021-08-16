@@ -20,6 +20,7 @@ namespace Data
         bool RestorePedido(Pedido pRestore);
 
         int getLastCodigoPedido();
+        int getLastCodigoItem();
 
         IEnumerable<Item> getAllItens(int page);
 
@@ -27,6 +28,5 @@ namespace Data
 
         Item getItemById(int codigo);
 
-        int getLastCodigoItem();
     }
 }

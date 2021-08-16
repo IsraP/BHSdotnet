@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Model
 {
@@ -20,6 +21,7 @@ namespace Model
 
         public int? Codigopedido { get; set; }
 
+        [MaxLength(50)]
         public string Descricao { get; set; }
 
         public decimal Valoritem { get; set; }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Model
 {
@@ -22,6 +22,7 @@ namespace Model
 
         public int Codigo { get; set; }
 
+        [MaxLength(40)]
         public string Descricao { get; set; }
 
         public DateTime Datapedido { get; set; }

@@ -38,7 +38,6 @@ namespace Data
             if (page == 0)
                 page++;
 
-            Console.WriteLine("wat " + page);
             var results = queryP.OrderBy(ped => ped.Status).Skip((page - 1) * 8).Take(8);
 
             return results;
