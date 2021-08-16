@@ -1,0 +1,21 @@
+@using Model
+@model Item
+@{
+     ViewData["Title"] = "Adicionar novo Item";
+}
+
+<form class="form-horizontal" asp-action="addItem" asp-controller="Item" method="POST">
+     <input type="hidden" class="form-control" asp-for="Codigo" />
+     <input type="hidden" value="1" class="form-control" asp-for="Codigopedido" />
+     <div class="form-group row">
+          <label class="col-5 control-label my-2" for="Desc">Descrição</label>
+          <div class="col-md-5">
+               <input type="text" class="form-control my-2" asp-for="Descricao" />
+          </div>
+          <label class="col-5 control-label my-2" for="Valorpedido">Valor</label>
+          <div class="col-md-5">
+               <input type="number" class="form-control my-2" step="any" asp-for="Valoritem" />
+          </div>
+     </div>
+     <button type="Submit" class="btn btn-success">Enviar</button>
+</form>

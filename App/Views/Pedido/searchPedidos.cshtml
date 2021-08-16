@@ -1,0 +1,134 @@
+@model IEnumerable<Model.Pedido>
+@{
+    ViewData["Title"] = "Pedidos - Pesquisa";
+}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+        <form class="card card-sm" asp-action="searchPedidos" asp-controller="Pedido">
+            <div class="card-body row no-gutters align-items-center">
+                <div class="col-auto">
+                    <i class="fas fa-search h4 text-body"></i>
+                </div>
+                <div class="col">
+                    <input name="query" class="form-control form-control-lg form-control-borderless"
+                        placeholder="Encontre um pedido">
+                </div>
+                <div class="col-auto">
+                    <button class="btn py-2 btn-orange" type="submit">Pesquisar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<h3 class="my-3">Resultados para a pesquisa "@ViewBag.query":</h3>
+<div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+    @foreach (var pdo in Model)
+    {
+        <div class="col-lg-3 col-xs-12 col-sm-6 col-md-4 my-3">
+            <div class="card h-100 shadow-sm"> <img
+                src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png"
+                class="card-img-top" alt="XXXX">
+                <div class="card-body">
+                    <div class="clearfix mb-3">
+                        @if (pdo.Status == "A")
+                        {
+                            <span class="float-start badge rounded-pill bg-success">
+                                Ativo
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="float-start badge rounded-pill bg-danger">
+                                Excluido
+                            </span>
+                        }
+                        <span class="float-end price-hp">R$ @pdo.Valorpedido.ToString().Replace(".", ",")</span>
+                    </div>
+                    <h5 class="card-title">@pdo.Descricao</h5>
+                    <div class="text-center my-4">
+                        <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#@($"modal{pdo.Codigo}")">
+                            Ver mais
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="@($"modal{pdo.Codigo}")" tabindex="-1" aria-labelledby="@pdo.Codigo" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">@pdo.Descricao - R$ @pdo.Valorpedido.ToString().Replace(".", ",")</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            @foreach (var it in pdo.Itens)
+                            {
+                                <li>@it.Descricao</li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="">
+                            @if (@pdo.Status == "A")
+                            {
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                            data-target="#@($"excluir{pdo.Codigo}")">Excluir</button>
+                            }
+                            else
+                            {
+                                <a asp-action="restorePedido" asp-route-id="@pdo.Codigo" asp-controller="Pedido"
+                            class="btn btn-success">Restaurar</a>
+                            }
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                        <div class="collapse" id="@($"excluir{pdo.Codigo}")">
+                            <div class="card card-body">
+                                Deseja excluir o pedido @pdo.Descricao?
+                            </div>
+                            <div class="card card-footer">
+                                <a asp-action="removePedido" asp-route-id="@pdo.Codigo" asp-controller="Pedido"
+                                class="btn btn-danger">Excluir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<nav aria-label="pagination" class="d-flex justify-content-center">
+    <ul class="pagination d-flex">
+        @if (ViewBag.page <= 1)
+        {
+            <li class="page-item disabled">
+                <a class="page-link disabled" asp-action="showPreviousPage" asp-controller="Pedido"
+                asp-route-page=@ViewBag.page asp-route-query=@ViewBag.query aria-label="Next">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+            </li>
+        }
+        else
+        {
+            <li>
+                <a class="page-link" asp-action="searchPreviousPage" asp-controller="Pedido" asp-route-page=@ViewBag.page
+                asp-route-query=@ViewBag.query aria-label="Next">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+            </li>
+        }
+        <li class="page-item">
+            <a class="page-link" asp-action="searchNextPage" asp-controller="Pedido" asp-route-page=@ViewBag.page
+                asp-route-query=@ViewBag.query aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>
