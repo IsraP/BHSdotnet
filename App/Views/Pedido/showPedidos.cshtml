@@ -89,7 +89,8 @@
                                 <a asp-action="restorePedido" asp-route-id="@pdo.Codigo" asp-controller="Pedido"
                             class="btn btn-success">Restaurar</a>
                             }
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                onclick="hideModal(`@($"excluir{pdo.Codigo}")`)">Fechar</button>
                         </div>
                         <div class="collapse" id="@($"excluir{pdo.Codigo}")">
                             <div class="card card-body">
