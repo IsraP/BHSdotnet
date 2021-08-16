@@ -46,7 +46,7 @@ Um repositório feito pra guardar toda a solução desenvolvida para o desafio p
 * Era simples, então eu acabei fazendo
 
 ## Informações
-* A pasta App contém todos os arquivos destinados a rodar a aplicação em sí. Views e Controllers se encontram nele
+* A pasta App contém todos os arquivos destinados a rodar a aplicação em sí. Views e Controllers se encontram nela
 * As conexões com o banco de dados são feitas e administradas na pasta Data
 * Todos os modelos usados se encontram na pasta Model
 
