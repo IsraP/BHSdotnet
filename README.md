@@ -39,6 +39,5 @@ Um repositório feito pra guardar toda a solução desenvolvida para o desafio p
 ## Comentários
 
 * Colocar esse código de pedido como non-nullable foi sacanagem, eim kk
-  * Me pegou completamente de surpresa, todo o planejamento que eu tinha feito do sistema acabou se tornando inviável (tanto que eu nem implementei a adição de itens nos pedidos)
 * A abordagem database-first não havia sido passada em nenhum dos cursos, então eu demorei um pouco pra pegar a manha
 * Gostei bastante da experiência, não sei como as coisas vão ser depois disso, mas gostaria de agradecer a todos os envolvidos pela oportunidade.
